@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace KD.CSGO.Logic.Connections
 {
@@ -15,6 +16,14 @@ namespace KD.CSGO.Logic.Connections
         /// Id of CSGO process after it has been opened
         /// </summary>
         int OpennedProcessHandle { get; }
+        /// <summary>
+        /// Handler to client.dll
+        /// </summary>
+        ProcessModule Client { get; }
+        /// <summary>
+        /// Client base address.
+        /// </summary>
+        IntPtr ClientAddress { get; }
 
         /// <summary>
         /// Connect to CS:GO.

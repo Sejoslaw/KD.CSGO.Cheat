@@ -10,6 +10,7 @@ namespace KD.CSGO.Logic.Configs
     public static class Settings
     {
         public static string ProcessName => GetValueFromConfig("ProcessName");
+        public static string ClientModule => GetValueFromConfig("ClientModule");
         public static int DelayBeforeModuleCheck => ParseConfigValue("DelayBeforeModuleCheck");
 
         /// <summary>
@@ -30,6 +31,11 @@ namespace KD.CSGO.Logic.Configs
         /// <returns></returns>
         public static int Parse(string value)
         {
+            if (value.StartsWith("0x")) // Offsets, Signatures, etc.
+            {
+                return Convert.ToInt32(value, 16);
+            }
+
             int parsed;
             if (int.TryParse(value, out parsed))
             {

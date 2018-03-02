@@ -35,7 +35,16 @@ namespace KD.CSGOCheat
 
         private void CB_Triggerbot_Active_CheckedChanged(object sender, EventArgs e)
         {
+            this.TrySetValue(0, this.NUD_Triggerbot_Delay.Value.ToString(), this.Logic.Triggerbot.ShootingDelayMilliseconds);
+            this.TrySetValue(16, this.NUD_Triggerbot_EntityLoopDistance.Value.ToString(), this.Logic.Triggerbot.EntityLoopDistance);
+
             this.StartStopModule(sender as CheckBox, this.Logic.Triggerbot);
+        }
+
+        private void TrySetValue(int defaultValue, string boxValue, int fieldToSet)
+        {
+            int.TryParse(boxValue, out defaultValue);
+            fieldToSet = defaultValue;
         }
 
         /// <summary>

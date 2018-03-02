@@ -25,16 +25,29 @@ namespace KD.CSGO.Logic.Utilities
         [DllImport("kernel32.dll")]
         public static extern bool WriteProcessMemory(int hProcess, int lpBaseAddress, byte[] buffer, int size, int lpNumberOfBytesWritten);
 
-        public static byte[] ReadMemory(int adress, int processSize, int processHandle)
+        public static byte[] ReadMemory(int address, int processSize, int processHandle)
         {
             byte[] buffer = new byte[processSize];
-            ReadProcessMemory(processHandle, adress, buffer, processSize, 0);
+            ReadProcessMemory(processHandle, address, buffer, processSize, 0);
             return buffer;
         }
 
-        public static void WriteMemory(int adress, byte[] processBytes, int processHandle)
+        public static int ReadMemory(int processHandle, int address)
         {
-            WriteProcessMemory(processHandle, adress, processBytes, processBytes.Length, 0);
+            byte[] value = ReadMemory(address, 32, processHandle);
+            int parsed = BitConverter.ToInt32(value, 0);
+            return parsed;
+        }
+
+        public static void WriteMemory(int address, byte[] processBytes, int processHandle)
+        {
+            WriteProcessMemory(processHandle, address, processBytes, processBytes.Length, 0);
+        }
+
+        public static void WriteMemory(int processHandle, int address, int value)
+        {
+            byte[] bytes = BitConverter.GetBytes(value);
+            WriteMemory(address, bytes, processHandle);
         }
 
         public static int GetObjectSize(object obj)

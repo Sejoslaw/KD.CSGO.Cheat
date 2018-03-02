@@ -37,10 +37,18 @@
             this.GB_ConnectionStatus = new System.Windows.Forms.GroupBox();
             this.TB_ConnectionStatus = new System.Windows.Forms.TextBox();
             this.B_ConnectToCsgo = new System.Windows.Forms.Button();
+            this.GB_Triggerbot_Delay = new System.Windows.Forms.GroupBox();
+            this.NUD_Triggerbot_Delay = new System.Windows.Forms.NumericUpDown();
+            this.GB_EntityLoopDistance = new System.Windows.Forms.GroupBox();
+            this.NUD_Triggerbot_EntityLoopDistance = new System.Windows.Forms.NumericUpDown();
             this.GB_Wallhack.SuspendLayout();
             this.GB_Aimbot.SuspendLayout();
             this.GB_Triggerbot.SuspendLayout();
             this.GB_ConnectionStatus.SuspendLayout();
+            this.GB_Triggerbot_Delay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Triggerbot_Delay)).BeginInit();
+            this.GB_EntityLoopDistance.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Triggerbot_EntityLoopDistance)).BeginInit();
             this.SuspendLayout();
             // 
             // GB_Wallhack
@@ -86,10 +94,12 @@
             // 
             // GB_Triggerbot
             // 
+            this.GB_Triggerbot.Controls.Add(this.GB_EntityLoopDistance);
+            this.GB_Triggerbot.Controls.Add(this.GB_Triggerbot_Delay);
             this.GB_Triggerbot.Controls.Add(this.CB_Triggerbot_Active);
             this.GB_Triggerbot.Location = new System.Drawing.Point(11, 189);
             this.GB_Triggerbot.Name = "GB_Triggerbot";
-            this.GB_Triggerbot.Size = new System.Drawing.Size(200, 100);
+            this.GB_Triggerbot.Size = new System.Drawing.Size(200, 159);
             this.GB_Triggerbot.TabIndex = 1;
             this.GB_Triggerbot.TabStop = false;
             this.GB_Triggerbot.Text = "Triggerbot";
@@ -137,11 +147,50 @@
             this.B_ConnectToCsgo.UseVisualStyleBackColor = true;
             this.B_ConnectToCsgo.Click += new System.EventHandler(this.B_ConnectToCsgo_Click);
             // 
+            // GB_Triggerbot_Delay
+            // 
+            this.GB_Triggerbot_Delay.Controls.Add(this.NUD_Triggerbot_Delay);
+            this.GB_Triggerbot_Delay.Location = new System.Drawing.Point(7, 43);
+            this.GB_Triggerbot_Delay.Name = "GB_Triggerbot_Delay";
+            this.GB_Triggerbot_Delay.Size = new System.Drawing.Size(134, 50);
+            this.GB_Triggerbot_Delay.TabIndex = 1;
+            this.GB_Triggerbot_Delay.TabStop = false;
+            this.GB_Triggerbot_Delay.Text = "Delay (in milliseconds)";
+            // 
+            // NUD_Triggerbot_Delay
+            // 
+            this.NUD_Triggerbot_Delay.Location = new System.Drawing.Point(6, 19);
+            this.NUD_Triggerbot_Delay.Name = "NUD_Triggerbot_Delay";
+            this.NUD_Triggerbot_Delay.Size = new System.Drawing.Size(120, 20);
+            this.NUD_Triggerbot_Delay.TabIndex = 1;
+            // 
+            // GB_EntityLoopDistance
+            // 
+            this.GB_EntityLoopDistance.Controls.Add(this.NUD_Triggerbot_EntityLoopDistance);
+            this.GB_EntityLoopDistance.Location = new System.Drawing.Point(8, 99);
+            this.GB_EntityLoopDistance.Name = "GB_EntityLoopDistance";
+            this.GB_EntityLoopDistance.Size = new System.Drawing.Size(134, 50);
+            this.GB_EntityLoopDistance.TabIndex = 2;
+            this.GB_EntityLoopDistance.TabStop = false;
+            this.GB_EntityLoopDistance.Text = "Entity loop distance";
+            // 
+            // NUD_Triggerbot_EntityLoopDistance
+            // 
+            this.NUD_Triggerbot_EntityLoopDistance.Location = new System.Drawing.Point(6, 19);
+            this.NUD_Triggerbot_EntityLoopDistance.Name = "NUD_Triggerbot_EntityLoopDistance";
+            this.NUD_Triggerbot_EntityLoopDistance.Size = new System.Drawing.Size(120, 20);
+            this.NUD_Triggerbot_EntityLoopDistance.TabIndex = 1;
+            this.NUD_Triggerbot_EntityLoopDistance.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(431, 298);
+            this.ClientSize = new System.Drawing.Size(430, 360);
             this.Controls.Add(this.GB_ConnectionStatus);
             this.Controls.Add(this.GB_Triggerbot);
             this.Controls.Add(this.GB_Aimbot);
@@ -160,6 +209,10 @@
             this.GB_Triggerbot.PerformLayout();
             this.GB_ConnectionStatus.ResumeLayout(false);
             this.GB_ConnectionStatus.PerformLayout();
+            this.GB_Triggerbot_Delay.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Triggerbot_Delay)).EndInit();
+            this.GB_EntityLoopDistance.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NUD_Triggerbot_EntityLoopDistance)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -175,6 +228,10 @@
         private System.Windows.Forms.GroupBox GB_ConnectionStatus;
         private System.Windows.Forms.TextBox TB_ConnectionStatus;
         private System.Windows.Forms.Button B_ConnectToCsgo;
+        private System.Windows.Forms.GroupBox GB_Triggerbot_Delay;
+        private System.Windows.Forms.NumericUpDown NUD_Triggerbot_Delay;
+        private System.Windows.Forms.GroupBox GB_EntityLoopDistance;
+        private System.Windows.Forms.NumericUpDown NUD_Triggerbot_EntityLoopDistance;
     }
 }
 
